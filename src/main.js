@@ -30,10 +30,9 @@ import ConfirmationService from 'primevue/confirmationservice';
 // PrimeIcons - importado separadamente
 import 'primeicons/primeicons.css';
 
-// PrimeFlex
 
+import './services/api'
 
-// Crear aplicación
 const app = createApp(App)
 
 app.use(createPinia())
