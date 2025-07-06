@@ -1,3 +1,3 @@
 export default [
-    { label: 'Dashboard', icon: 'pi-home', to: '/dashboard' },
+    { label: 'Devs', icon: 'pi-users', to: '/devs' },
 ];

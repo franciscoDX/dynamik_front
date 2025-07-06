@@ -1,7 +1,7 @@
-import Dashboard from "@/pages/dashboard/index.vue";
+import DevList from "@/pages/dev/pages/DevList.vue";
 
 const routes = [
-  { path: "/", component: Dashboard, meta: { layout: "default" } },
+    { path: "/devs", component: DevList, meta: { layout: "default" } },
 ];
   
 export default routes
