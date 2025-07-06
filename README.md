@@ -1,35 +1,169 @@
-# base_vue_dashboard
+# Frontend - Aplicação Vue.js para Devs
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicação frontend desenvolvida com Vue.js 3 e PrimeVue 4.2, containerizada com Docker.
 
-## Recommended IDE Setup
+## 🚀 Tecnologias Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue.js**: 3.x
+- **PrimeVue**: 4.2
+- **Node.js**: 20 (Alpine)
+- **Docker**: Para containerização
+- **Vite**: Como bundler e servidor de desenvolvimento
 
-## Customize configuration
+## 📋 Pré-requisitos
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Opção 1: Docker (Recomendado)
+- Docker Compose
 
-## Project Setup
+### Opção 2: Instalação Local
+- Node.js 20.x ou superior
+- NPM
 
-```sh
-npm install
+## 🐳 Instalação com Docker (Recomendado)
+
+### 1. Clonar o repositório
+```bash
+git clone [URL_DO_REPOSITORIO]
+cd frontend
 ```
 
-### Compile and Hot-Reload for Development
+### 2. Levantar contentor
+```bash
+docker-compose up -d
+```
 
-```sh
+### 3. Entrar no contentor e instalar dependências
+```bash
+# Entrar no contentor
+docker-compose exec node sh
+
+# Instalar dependências
+npm install
+
+# Executar servidor de desenvolvimento
 npm run dev
 ```
 
-### Compile and Minify for Production
+### 4. Aceder à aplicação
+- **Frontend**: http://localhost:5000
 
-```sh
+## 🛠️ Instalação Local (Sem Docker)
+
+### 1. Instalar dependências
+```bash
+npm install
+```
+
+### 2. Executar servidor de desenvolvimento
+```bash
+npm run dev
+```
+
+### 3. Aceder à aplicação
+- **Frontend**: http://localhost:5173 (porta por defeito do Vite)
+
+## 📝 Comandos Úteis
+
+### Comandos Docker
+```bash
+# Levantar contentor
+docker-compose up -d
+
+# Ver registos
+docker-compose logs -f
+
+# Parar contentor
+docker-compose down
+
+# Entrar no contentor
+docker-compose exec node sh
+
+# Reiniciar contentor
+docker-compose restart
+```
+
+### Scripts NPM (dentro do contentor ou localmente)
+```bash
+# Servidor de desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+```
+
+## 🔧 Configuração de Desenvolvimento
+
+### Configuração da API
+```javascript
+// Em desenvolvimento
+const VUE_APP_API_URL = 'http://localhost:8000/api'
+
+// Em produção
+const VUE_APP_API_URL = '/api'
+```
+
+## 🎨 Componentes e Bibliotecas
+
+### PrimeVue 4.2
+- **Tema**: Configurado com tema personalizável
+- **Ícones**: PrimeIcons incluídos
+- **Componentes**: Todos os componentes do PrimeVue disponíveis
+
+
+## 🌐 Configuração da API
+
+### Variáveis de Ambiente
+Criar ficheiro `.env` na raiz:
+```env
+VUE_APP_API_URL=http://localhost:8000/api
+```
+
+## 📱 Funcionalidades Implementadas
+
+- [x] Dashboard responsivo
+- [x] Operações CRUD (Apenas Create e Read, não foi requerido update ou delete)
+- [x] Validação de formulários
+- [x] Routing com Vue Router
+- [x] Interface moderna com PrimeVue
+- [x] Design responsivo
+
+## 🚀 Build para Produção
+
+### Com Docker
+```bash
+# Entrar no contentor
+docker-compose exec node sh
+
+# Criar build
+npm run build
+
+# Os ficheiros estarão em dist/
+```
+
+### Sem Docker
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 🔍 Resolução de Problemas
 
-```sh
-npm run lint
+### Problemas de permissões (Docker)
+```bash
+# Alterar ownership do node_modules
+docker-compose exec node chown -R node:node /app/node_modules
 ```
+
+### Limpar cache
+```bash
+# Limpar node_modules
+rm -rf node_modules package-lock.json
+npm install
+
+# Com Docker
+docker-compose exec node sh -c "rm -rf node_modules package-lock.json && npm install"
+```
+
+---
+
+**Nota**: Este frontend foi desenvolvido como parte de um teste técnico, implementando uma interface moderna e responsiva com Vue.js 3 e PrimeVue 4.2.
